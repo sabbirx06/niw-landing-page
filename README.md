@@ -12,7 +12,7 @@ HTML5, CSS3, and vanilla JavaScript. No framework, dependencies to install, or b
 ├── index.html       # Page content and accessible markup
 ├── styles.css       # Typography, colors, and responsive layout
 ├── script.js        # Accordion behavior and demo form validation
-├── .gitignore       # Excludes local Chrome profiles and screenshots
+├── .gitignore       # Excludes local Chrome profiles and log files
 ├── README.md        # Project overview and local setup
 ├── AGENTS.md        # Repository contributor instructions
 ├── content/
@@ -20,7 +20,7 @@ HTML5, CSS3, and vanilla JavaScript. No framework, dependencies to install, or b
 │   ├── design.md    # Visual identity and contrast checks
 │   └── points.md    # Five-point content outline
 ├── source/          # Reference material
-└── screenshots/     # Optional local check output; ignored by Git
+└── screenshots/     # Eight tracked render and form-state screenshots
 ```
 
 ## Run locally
@@ -44,7 +44,7 @@ WCAG AA contrast checks are documented in `content/design.md`. Body text has a c
 
 Headless Chrome render checks passed at 375×667, 1280×720, and 1715×993, including first-screen layout, section-link scrolling, heading alignment, and unbroken “EB-2” text. Interaction checks at 375px and 1280px covered form validation, demo confirmation with no submission network requests, accordion state and ARIA updates, keyboard navigation, and visible focus outlines.
 
-Screenshots and Chrome profiles are local artifacts excluded by Git. No automated test or lint runner is configured. JavaScript syntax can be checked with:
+Eight screenshots are tracked in `screenshots/`: first-screen and after-hero-click images for 375×667, 1280×720, and 1715×993, plus the 375px form error and success states. Older screenshots and logs were removed. Chrome profiles and all `.log` files remain excluded by Git. No automated test or lint runner is configured. JavaScript syntax can be checked with:
 
 ```sh
 node --check script.js
