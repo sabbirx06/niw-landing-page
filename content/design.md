@@ -22,9 +22,9 @@ Use warm paper (`#FAF8F3`) for text on ochre buttons. Keep the accent concentrat
 | Role | Google Font and weight | CSS fallback stack | Rationale |
 | --- | --- | --- | --- |
 | Headings | [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4), 600 | `"Source Serif 4", Georgia, "Times New Roman", serif` | An understated editorial serif gives the guide an educational identity and makes its section hierarchy clear. |
-| Body and interface | [Source Sans 3](https://fonts.google.com/specimen/Source+Sans+3), 400; 600 for labels and buttons | `"Source Sans 3", "Segoe UI", Arial, sans-serif` | A straightforward sans serif keeps explanations, form labels, and unfamiliar immigration terms visually clear. |
+| Body and interface | [Inter](https://fonts.google.com/specimen/Inter), 400; 600 for labels and buttons | `"Inter", "Segoe UI", Arial, sans-serif` | A straightforward sans serif keeps explanations, form labels, and unfamiliar immigration terms visually clear. |
 
-Both are free Google Fonts under the SIL Open Font License: [Source Serif 4 license](https://raw.githubusercontent.com/google/fonts/main/ofl/sourceserif4/OFL.txt), [Source Sans 3 license](https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/OFL.txt). When distributing font files, retain their license notices.
+Both are free Google Fonts under the SIL Open Font License: [Source Serif 4 license](https://raw.githubusercontent.com/google/fonts/main/ofl/sourceserif4/OFL.txt), [Inter license](https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt). When distributing font files, retain their license notices.
 
 Start body copy at 18px with a 1.6 line height and a reading width around 65 characters. Use sentence-case headings, generous section spacing, and short paragraphs. Give the fifth point about status and work permission a clear heading and readable text rather than styling it as fine print.
 
