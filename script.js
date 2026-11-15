@@ -59,3 +59,40 @@ fields.forEach((field) => {
     if (field.getAttribute("aria-invalid") === "true") validateField(field);
   });
 });
+
+// Reserve the expanded header's space so collapsing never moves page content.
+const header = document.querySelector(".site-header");
+const headerSlot = document.querySelector(".header-slot");
+
+function measureHeader() {
+  const sample = header.cloneNode(true);
+  sample.inert = true;
+  sample.setAttribute("aria-hidden", "true");
+  sample.style.cssText = `position: absolute; visibility: hidden; pointer-events: none; width: ${headerSlot.clientWidth}px; transition: none;`;
+  sample.querySelector(".wordmark").style.transition = "none";
+  document.body.append(sample);
+  sample.classList.remove("is-compact");
+  const expandedHeight = sample.getBoundingClientRect().height;
+  sample.classList.add("is-compact");
+  const compactHeight = sample.getBoundingClientRect().height;
+  sample.remove();
+  document.documentElement.style.setProperty("--header-height", `${expandedHeight}px`);
+  document.documentElement.style.setProperty("--compact-header-height", `${compactHeight}px`);
+}
+
+let headerFramePending = false;
+function updateHeader() {
+  if (window.scrollY > 60) header.classList.add("is-compact");
+  else if (window.scrollY < 20) header.classList.remove("is-compact");
+  headerFramePending = false;
+}
+window.addEventListener("scroll", () => {
+  if (!headerFramePending) {
+    headerFramePending = true;
+    requestAnimationFrame(updateHeader);
+  }
+}, { passive: true });
+window.addEventListener("resize", measureHeader);
+measureHeader();
+document.fonts.ready.then(measureHeader);
+updateHeader();
