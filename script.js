@@ -28,6 +28,12 @@ triggers.forEach((trigger, index) => {
 const form = document.getElementById("contact-form");
 const fields = [...form.querySelectorAll("[required]")];
 const confirmation = document.getElementById("confirmation");
+const formStatus = document.getElementById("form-status");
+const submitButton = form.querySelector('[type="submit"]');
+const submitLabel = submitButton.querySelector(".submit-label");
+const submitSpinner = submitButton.querySelector(".submit-spinner");
+const idleSubmitLabel = submitLabel.textContent;
+let isSubmitting = false;
 
 function validateField(field) {
   let message = "";
@@ -43,19 +49,43 @@ function validateField(field) {
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  if (isSubmitting) return;
   confirmation.hidden = true;
+  formStatus.textContent = "";
   const invalid = fields.filter((field) => !validateField(field));
   if (invalid.length) {
     invalid[0].focus();
     return;
   }
-  confirmation.hidden = false;
-  confirmation.focus();
+  isSubmitting = true;
+  submitButton.disabled = true;
+  fields.forEach((field) => { field.disabled = true; });
+  form.setAttribute("aria-busy", "true");
+  submitLabel.textContent = "Sending...";
+  submitSpinner.hidden = false;
+  submitButton.classList.add("is-loading");
+  // Keep the live region outside the busy form so the waiting message is announced.
+  formStatus.textContent = "Sending, please wait";
+
+  window.setTimeout(() => {
+    form.reset();
+    fields.forEach((field) => { field.disabled = false; });
+    submitButton.disabled = false;
+    submitLabel.textContent = idleSubmitLabel;
+    submitSpinner.hidden = true;
+    submitButton.classList.remove("is-loading");
+    form.setAttribute("aria-busy", "false");
+    isSubmitting = false;
+    confirmation.hidden = false;
+    formStatus.textContent = confirmation.textContent.trim();
+    confirmation.focus();
+  }, 1500);
 });
 
 fields.forEach((field) => {
   field.addEventListener("input", () => {
     confirmation.hidden = true;
+    formStatus.textContent = "";
     if (field.getAttribute("aria-invalid") === "true") validateField(field);
   });
 });

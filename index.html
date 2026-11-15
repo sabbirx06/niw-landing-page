@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23234C43%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2247%22%20text-anchor%3D%22middle%22%20font-family%3D%22Source%20Serif%204%2C%20Georgia%2C%20serif%22%20font-size%3D%2246%22%20font-weight%3D%22600%22%20fill%3D%22%23FAF8F3%22%3EN%3C%2Ftext%3E%3C%2Fsvg%3E">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EB-2 National Interest Waiver: Five Points to Know First</title>
   <meta name="description" content="Learn the five points to understand before an EB-2 NIW petition, and see how EB-2 NIW compares with EB-1A. General information, not legal advice.">
@@ -127,7 +128,7 @@
         <h2 id="contact-heading">Contact</h2>
         <p class="section-intro">Share your questions about eligibility, evidence, or the NIW process.</p>
       </div>
-      <form id="contact-form" novalidate aria-describedby="form-note">
+      <form id="contact-form" aria-busy="false" novalidate aria-describedby="form-note">
         <p class="form-note" id="form-note">All fields are required. This is a demo form; nothing will be sent.</p>
         <div class="form-fields">
             <div class="field">
@@ -157,10 +158,11 @@
               <p class="field-error" id="service-error" hidden><span aria-hidden="true">⚠</span> <span class="error-text"></span></p>
             </div>
         </div>
-        <p><button class="button" type="submit">Submit demo form</button></p>
-        <p class="confirmation" id="confirmation" role="status" tabindex="-1" hidden><span aria-hidden="true">✓</span> This is a demo form. Nothing has been sent.</p>
+        <p><button class="button" type="submit"><span class="submit-label">Submit demo form</span><span class="submit-spinner" aria-hidden="true" hidden></span></button></p>
+        <p class="confirmation" id="confirmation" tabindex="-1" hidden><span aria-hidden="true">✓</span> This is a demo form. Nothing has been sent.</p>
         <noscript><p>JavaScript is needed to check this demo form. Nothing will be sent.</p></noscript>
       </form>
+      <p class="visually-hidden" id="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
     </section>
   </main>
   <footer class="site-footer"><div class="container"><p>General information, not legal advice. This site does not guarantee any immigration outcome.</p></div></footer>
