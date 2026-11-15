@@ -17,15 +17,15 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
   --primary: #F8FAFC;
-  --accent: #E01D48;
+  --accent: #F59E0B;
   --foreground: #F8FAFC;
   --background: #0B0F17;
   --error: #EF4444;
   --success: #10B981;
-  --accent-hover: #D33751;
+  --accent-hover: #FBBF24;
   --border: #687281;
   --focus: #38BDF8;
-  --button-text: #F8FAFC;
+  --button-text: #0B0F17;
   --sub-background: #0F172A;
   --panel: #151D2F;
   --elevated: #1E293B;
@@ -182,7 +182,7 @@ input, select { width: 100%; min-width: 0; min-height: 50px; border: 1px solid v
   .theme-ready .wordmark { transition: font-size 200ms ease, color 200ms ease; }
 }
 
-/* Slate surfaces and rose actions apply only to the dark palette. */
+/* Slate surfaces and amber actions apply only to the dark palette. */
 :root[data-theme="dark"] .site-header,
 :root[data-theme="dark"] .theme-toggle,
 :root[data-theme="dark"] input,

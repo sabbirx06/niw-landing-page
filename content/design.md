@@ -39,8 +39,8 @@ Normal-size text needs at least **4.5:1** under [WCAG 2.2, criterion 1.4.3](http
 | Dark: Body, headings and form labels | `#F8FAFC` | `#0B0F17` | **18.33:1** | 4.5:1 — Pass |
 | Dark: Secondary copy | `#CBD5E1` | `#0B0F17` | **12.92:1** | 4.5:1 — Pass |
 | Dark: Nav links | `#F59E0B` | `#0F172A` | **8.31:1** | 4.5:1 — Pass |
-| Dark: CTA text | `#F8FAFC` | `#E01D48` | **4.52:1** | 4.5:1 — Pass |
-| Dark: CTA hover text | `#F8FAFC` | `#D33751` | **4.53:1** | 4.5:1 — Pass |
+| Dark: CTA text | `#0B0F17` | `#F59E0B` | **8.93:1** | 4.5:1 — Pass |
+| Dark: CTA hover text | `#0B0F17` | `#FBBF24` | **11.49:1** | 4.5:1 — Pass |
 | Dark: Placeholder / muted text | `#738196` | `#0F172A` | **4.51:1** | 4.5:1 — Pass |
 | Dark: Error text | `#EF4444` | `#0B0F17` | **5.10:1** | 4.5:1 — Pass |
 | Dark: Success text | `#10B981` | `#0B0F17` | **7.56:1** | 4.5:1 — Pass |
@@ -55,12 +55,15 @@ Normal-size text needs at least **4.5:1** under [WCAG 2.2, criterion 1.4.3](http
 | Dark: Focus ring on hover surface | `#38BDF8` | `#26354D` | **5.77:1** | 3:1 — Pass |
 | Dark: Hover icon / link | `#F59E0B` | `#26354D` | **5.76:1** | 3:1 — Pass |
 | Dark: Invalid input border | `#EF4444` | `#0F172A` | **4.74:1** | 3:1 — Pass |
+| Dark: Amber accent on canvas | `#F59E0B` | `#0B0F17` | **8.93:1** | 3:1 — Pass |
+| Dark: Amber accent on panel | `#F59E0B` | `#151D2F` | **7.83:1** | 3:1 — Pass |
+| Dark: Amber accent on elevated card | `#F59E0B` | `#1E293B` | **6.81:1** | 3:1 — Pass |
 
 Primary headings, error text, and success text also exceed 4.5:1 on their respective page backgrounds. These checks establish contrast for the listed combinations, not whole-page WCAG compliance; check rendered hover/focus states and any added surfaces when implementing.
 
 ## Dark-Mode Palette
 
-Slate surfaces, near-white text, rose calls to action, warm amber links, and cyan focus rings replace the light palette only under `:root[data-theme="dark"]`. Typography, spacing, content, and behavior stay the same. Every applied color is a CSS custom property.
+Slate surfaces, near-white text, amber calls to action, warm amber links, and cyan focus rings replace the light palette only under `:root[data-theme="dark"]`. Typography, spacing, content, and behavior stay the same. Every applied color is a CSS custom property.
 
 | Role / variable | Hex | Use |
 | --- | --- | --- |
@@ -69,7 +72,8 @@ Slate surfaces, near-white text, rose calls to action, warm amber links, and cya
 | Card/panel / `--panel` | `#151D2F` | Open accordion panel and odd table rows. |
 | Elevated / `--elevated` | `#1E293B` | Even table rows. |
 | Hover surface / `--surface-hover` | `#26354D` | Accordion and theme-toggle hover. |
-| Primary text / `--foreground`, `--primary`, `--button-text` | `#F8FAFC` | Body, headings, labels and CTA text. |
+| Primary text / `--foreground`, `--primary` | `#F8FAFC` | Body, headings and labels. |
+| CTA text / `--button-text` | `#0B0F17` | Dark text on amber buttons and their hover state. |
 | Secondary text / `--secondary` | `#CBD5E1` | Hero copy, section intros and explanatory notes. |
 | Subtle text / `--subtle` | `#94A3B8` | Table source column. |
 | Muted text / `--muted` | `#738196` | Placeholder styling; adjusted for contrast. The current inputs have no placeholder copy. |
@@ -77,8 +81,8 @@ Slate surfaces, near-white text, rose calls to action, warm amber links, and cya
 | Card outline / `--card-outline` | `#1E293B` | Reserved decorative token; functional borders use `--border`. |
 | Functional border / `--border` | `#687281` | Inputs, tables, section separators and theme-toggle border. |
 | Divider / `--divider` | `#1B2538` | Reserved decorative token; currently unused. |
-| Primary CTA / `--accent` | `#E01D48` | Rose buttons, with a minimal contrast adjustment. |
-| Primary CTA hover / `--accent-hover` | `#D33751` | Rose button hover, adjusted for readable near-white text. |
+| Primary CTA / `--accent` | `#F59E0B` | Amber buttons and the Common mistake left border. |
+| Primary CTA hover / `--accent-hover` | `#FBBF24` | Amber button hover with dark text. |
 | Warm accent / `--warm-accent` | `#F59E0B` | Links and nav links. |
 | Focus ring / `--focus` | `#38BDF8` | Visible keyboard focus ring. |
 | Success / `--success` | `#10B981` | Demo confirmation text. |
@@ -86,12 +90,10 @@ Slate surfaces, near-white text, rose calls to action, warm amber links, and cya
 | Error / `--error` | `#EF4444` | Error messages and invalid-input borders. |
 | Info / `--info` | `#3B82F6` | Reserved info token. |
 
-Contrast adjustments use the first passing 8-bit step along the sRGB line toward black for CTA backgrounds, or white for muted text and functional borders. All other supplied palette values are preserved.
+The amber CTA and hover colors pass without adjustment. The existing muted-text and functional-border adjustments use the first passing 8-bit step along the sRGB line toward white. All other supplied palette values are preserved.
 
 | Supplied value | Applied value | Reason |
 | --- | --- | --- |
-| CTA `#E11D48` | `#E01D48` | Near-white `#F8FAFC` text rises from 4.489:1 to 4.522:1. |
-| CTA hover `#F43F5E` | `#D33751` | Near-white text rises from 3.509:1 to 4.526:1. |
 | Muted text `#64748B` | `#738196` | Text on input sub-background rises from 3.751:1 to 4.514:1. |
 | Input / functional border `#334155` | `#687281` | The shared border must also work on elevated table rows; contrast there rises from 1.413:1 to 3.004:1, and input-border contrast is 3.666:1. |
 
