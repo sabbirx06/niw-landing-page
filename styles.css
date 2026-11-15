@@ -60,7 +60,7 @@ a:hover { text-decoration-thickness: 2px; }
 [hidden] { display: none !important; }
 .nowrap { white-space: nowrap; }
 .container { width: min(100% - 40px, 1120px); margin-inline: auto; }
-.skip-link { position: absolute; top: 12px; left: 20px; transform: translateY(-200%); background: var(--background); z-index: 2; }
+.skip-link { position: absolute; top: 12px; left: 20px; transform: translateY(-200%); background: var(--background); z-index: 11; }
 .skip-link:focus { transform: none; }
 .header-slot { position: sticky; top: 0; z-index: 10; height: var(--header-height); pointer-events: none; }
 .site-header { position: sticky; top: 0; padding-block: 24px; border-bottom: 1px solid var(--border); background: var(--background); pointer-events: auto; transition: padding 200ms ease; }

@@ -11,16 +11,18 @@ HTML5, CSS3, and vanilla JavaScript. No framework, dependencies to install, or b
 ```text
 ├── index.html       # Page content and accessible markup
 ├── styles.css       # Typography, colors, and responsive layout
-├── script.js        # Accordion behavior and demo form validation
+├── script.js        # Accordion, theme, header, and demo form behavior
 ├── .gitignore       # Excludes local Chrome profiles and log files
 ├── README.md        # Project overview and local setup
 ├── AGENTS.md        # Repository contributor instructions
 ├── content/
 │   ├── copy.md      # Page copy
 │   ├── design.md    # Visual identity and contrast checks
-│   └── points.md    # Five-point content outline
+│   ├── points.md    # Five-point content outline
+│   └── table.md     # Comparison copy and source attribution
+├── og-image.png     # 1200×630 social-sharing image
 ├── source/          # Reference material
-└── screenshots/     # Eight tracked render and form-state screenshots
+└── screenshots/     # Render and interaction regression screenshots
 ```
 
 ## Run locally
@@ -33,6 +35,30 @@ The light theme uses forest green and ochre on warm paper; the dark theme uses f
 
 WCAG AA contrast checks are documented in `content/design.md`. Body text has a contrast ratio of 12.39:1 and button text 5.54:1, both exceeding the 4.5:1 requirement for normal text. These checks do not establish whole-page WCAG compliance.
 
+## Comparison table
+
+The seven-row EB-2 NIW / EB-1A comparison follows the accordion. Sources were **read on Nov 15, 2026**: USCIS EB-2 and EB-1 category pages; Case Processing Times for Form I-140; FY2026 Q3 I-140 counts and approved petitions awaiting visa numbers; the premium-processing page and Form G-1055; and getniw.com (Nov 1, 2025; updated Mar 28, 2026). Exact table copy, dates, methodology notes, and attribution are preserved in [content/table.md](content/table.md). The table scrolls in its own keyboard-focusable region on mobile.
+
+## Dark/light toggle
+
+The header's sun/moon button switches between the warm-paper light theme and forest-green/gold dark theme. The choice persists in localStorage under `theme`; with no saved choice the page follows the system preference. Storage reads and writes are guarded so blocked storage does not prevent loading or toggling. An inline head script chooses the theme before styles load, and the browser theme color follows the selection.
+
+## Sticky collapsing header
+
+The header stays visible and compacts after scrolling beyond 60px, expanding again below 20px. Reserved header space prevents content shifts, and section offsets use the measured compact height. Navigation links cover Five points, Compare, and Contact.
+
+## Smooth scrolling
+
+Navigation and the hero button use native anchor links with CSS smooth scrolling. Target headings remain below the sticky header. Reduced-motion preferences disable smooth scrolling and header transitions.
+
+## Simulated form loading
+
+Validation runs before loading begins. A valid submission disables the fields and submit button, shows “Sending...” with a spinner for about 1.5 seconds, then clears the form and focuses the existing demo confirmation. A polite status region announces progress and completion. Duplicate submissions are guarded, reduced motion hides the spinner, and submission makes no network requests or backend calls.
+
+## Open Graph metadata
+
+The head includes a unique title and description plus Open Graph and Twitter summary-large-image metadata. The canonical sharing URL is https://sabbirx06.github.io/niw-landing-page/ and the sharing image is `og-image.png` (1200×630). A single inline SVG favicon uses the existing forest-green and warm-paper palette.
+
 ## Accessibility
 
 - Keyboard-operable accordion with ARIA expansion states and associated panels; Enter and Space toggle panels, while arrow keys, Home, and End move between accordion buttons.
@@ -42,9 +68,11 @@ WCAG AA contrast checks are documented in `content/design.md`. Body text has a c
 
 ## Validation
 
-Headless Chrome render checks passed at 375×667, 1280×720, and 1715×993, including first-screen layout, section-link scrolling, heading alignment, and unbroken “EB-2” text. Interaction checks at 375px and 1280px covered form validation, demo confirmation with no submission network requests, accordion state and ARIA updates, keyboard navigation, and visible focus outlines.
+Day 2 regression checks passed in headless Chrome at 375×667, 1280×720, and 1715×993 in both light and dark themes. Checks cover hero sizing and unclipped text, page overflow, accordion exclusivity and ARIA state, mobile-only table scrolling, unbroken “EB-1”, “EB-1A”, and “EB-2” labels, section headings below the header, logical Tab order and visible focus, Enter/Space activation, validation, simulated loading, form reset and confirmation focus, zero submission network requests, and persisted themes. The focused skip link remains above the sticky header.
 
-Eight screenshots are tracked in `screenshots/`: first-screen and after-hero-click images for 375×667, 1280×720, and 1715×993, plus the 375px form error and success states. Older screenshots and logs were removed. Chrome profiles and all `.log` files remain excluded by Git. No automated test or lint runner is configured. JavaScript syntax can be checked with:
+Metadata checks confirm unique title, description, Open Graph and Twitter tags; the live URL matches `og:url`, and both local and live sharing images are 1200×630. Both system themes also load and toggle with localStorage blocked, and no browser console errors occur on load. Table copy and notes match `content/table.md`. ARIA and keyboard behavior are checked in the browser; actual screen-reader speech is not tested.
+
+Screenshots in `screenshots/` cover first screens, section navigation, both themes, comparison tables, and form error, loading, and confirmation states. The `day2-` screenshots capture the first screen, comparison section, and confirmation at all six viewport/theme combinations. Chrome profiles and all `.log` files remain excluded by Git. No automated test or lint runner is configured. JavaScript syntax can be checked with:
 
 ```sh
 node --check script.js
