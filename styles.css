@@ -16,29 +16,32 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --primary: #F8FAFC;
-  --accent: #F59E0B;
-  --foreground: #F8FAFC;
-  --background: #0B0F17;
-  --error: #EF4444;
-  --success: #10B981;
-  --accent-hover: #FBBF24;
-  --border: #687281;
-  --focus: #38BDF8;
-  --button-text: #0B0F17;
-  --sub-background: #0F172A;
-  --panel: #151D2F;
-  --elevated: #1E293B;
-  --surface-hover: #26354D;
-  --secondary: #CBD5E1;
-  --subtle: #94A3B8;
-  --muted: #738196;
-  --disabled: #475569;
-  --card-outline: #1E293B;
-  --divider: #1B2538;
-  --warm-accent: #F59E0B;
-  --warning: #F59E0B;
-  --info: #3B82F6;
+  --primary: #F2EDDF;
+  --accent: #C6B58E;
+  --foreground: #F2EDDF;
+  --background: #071510;
+  --error: #EAC29B;
+  --success: #A6DCB5;
+  --accent-hover: #E4D6B7;
+  --border: #C6B58E26;
+  --focus: #E4D6B7;
+  --button-text: #071510;
+  --sub-background: #050C09;
+  --panel: #102019;
+  --elevated: #232B25;
+  --surface-hover: #0B1C14;
+  --secondary: #AAA997;
+  --subtle: #C5C7B7;
+  --muted: #AAA997;
+  --disabled: #AAA997;
+  --card-outline: #C6B58E26;
+  --divider: #C6B58E26;
+  --warm-accent: #C6B58E;
+  --warning: #C6B58E;
+  --info: #C5C7B7;
+  --header-background: #071510D9;
+  --success-background: #8BA77912;
+  --success-border: #8BA77960;
 }
 
 
@@ -182,7 +185,7 @@ input, select { width: 100%; min-width: 0; min-height: 50px; border: 1px solid v
   .theme-ready .wordmark { transition: font-size 200ms ease, color 200ms ease; }
 }
 
-/* Slate surfaces and amber actions apply only to the dark palette. */
+/* Forest surfaces and gold actions apply only to the dark palette. */
 :root[data-theme="dark"] .site-header,
 :root[data-theme="dark"] .theme-toggle,
 :root[data-theme="dark"] input,
@@ -203,3 +206,13 @@ input, select { width: 100%; min-width: 0; min-height: 50px; border: 1px solid v
 :root[data-theme="dark"] .comparison-table tbody tr { background-color: var(--panel); }
 :root[data-theme="dark"] .comparison-table tbody tr:nth-child(even) { background-color: var(--elevated); }
 :root[data-theme="dark"] .comparison-table td:last-child { color: var(--subtle); }
+
+:root[data-theme="dark"] .site-header { background-color: var(--header-background); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] .theme-toggle,
+:root[data-theme="dark"] .comparison-table th,
+:root[data-theme="dark"] .comparison-table td { border-color: var(--accent); }
+:root[data-theme="dark"] input[aria-invalid="true"],
+:root[data-theme="dark"] select[aria-invalid="true"] { border-color: var(--error); }
+:root[data-theme="dark"] .confirmation { background-color: var(--success-background); box-shadow: inset 0 0 0 1px var(--success-border); }

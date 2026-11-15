@@ -32,69 +32,68 @@ Start body copy at 18px with a 1.6 line height and a reading width around 65 cha
 
 Normal-size text needs at least **4.5:1** under [WCAG 2.2, criterion 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). These ratios were calculated from the specified opaque sRGB hex values using linearized relative luminance and `(Llighter + 0.05) / (Ldarker + 0.05)`; values are displayed to two decimals, with pass decisions made before rounding.
 
-| Mode and use | Foreground | Background | Ratio | Required minimum |
+| Mode and use | Foreground | Background (composited where translucent) | Ratio | Required minimum |
 | --- | --- | --- | --- | --- |
 | Light: body | `#26332F` | `#FAF8F3` | **12.39:1** | 4.5:1 — Pass |
 | Light: button | `#FAF8F3` | `#8A5A24` | **5.54:1** | 4.5:1 — Pass |
-| Dark: Body, headings and form labels | `#F8FAFC` | `#0B0F17` | **18.33:1** | 4.5:1 — Pass |
-| Dark: Secondary copy | `#CBD5E1` | `#0B0F17` | **12.92:1** | 4.5:1 — Pass |
-| Dark: Nav links | `#F59E0B` | `#0F172A` | **8.31:1** | 4.5:1 — Pass |
-| Dark: CTA text | `#0B0F17` | `#F59E0B` | **8.93:1** | 4.5:1 — Pass |
-| Dark: CTA hover text | `#0B0F17` | `#FBBF24` | **11.49:1** | 4.5:1 — Pass |
-| Dark: Placeholder / muted text | `#738196` | `#0F172A` | **4.51:1** | 4.5:1 — Pass |
-| Dark: Error text | `#EF4444` | `#0B0F17` | **5.10:1** | 4.5:1 — Pass |
-| Dark: Success text | `#10B981` | `#0B0F17` | **7.56:1** | 4.5:1 — Pass |
-| Dark: Table header and input text | `#F8FAFC` | `#0F172A` | **17.06:1** | 4.5:1 — Pass |
-| Dark: Panel and table odd-row text | `#F8FAFC` | `#151D2F` | **16.07:1** | 4.5:1 — Pass |
-| Dark: Table even-row text | `#F8FAFC` | `#1E293B` | **13.98:1** | 4.5:1 — Pass |
-| Dark: Table source text, worst row | `#94A3B8` | `#1E293B` | **5.71:1** | 4.5:1 — Pass |
-| Dark: Table odd-row borders | `#687281` | `#151D2F` | **3.45:1** | 3:1 — Pass |
-| Dark: Table even-row borders | `#687281` | `#1E293B` | **3.00:1** | 3:1 — Pass |
-| Dark: Table header and input borders | `#687281` | `#0F172A` | **3.67:1** | 3:1 — Pass |
-| Dark: Focus ring on input / header | `#38BDF8` | `#0F172A` | **8.33:1** | 3:1 — Pass |
-| Dark: Focus ring on hover surface | `#38BDF8` | `#26354D` | **5.77:1** | 3:1 — Pass |
-| Dark: Hover icon / link | `#F59E0B` | `#26354D` | **5.76:1** | 3:1 — Pass |
-| Dark: Invalid input border | `#EF4444` | `#0F172A` | **4.74:1** | 3:1 — Pass |
-| Dark: Amber accent on canvas | `#F59E0B` | `#0B0F17` | **8.93:1** | 3:1 — Pass |
-| Dark: Amber accent on panel | `#F59E0B` | `#151D2F` | **7.83:1** | 3:1 — Pass |
-| Dark: Amber accent on elevated card | `#F59E0B` | `#1E293B` | **6.81:1** | 3:1 — Pass |
+| Dark: Body, headings and form labels | `#F2EDDF` | `#071510` | **15.98:1** | 4.5:1 — Pass |
+| Dark: Secondary copy | `#AAA997` | `#071510` | **7.86:1** | 4.5:1 — Pass |
+| Dark: Nav links, header over canvas | `#C6B58E` | `#071510` | **9.26:1** | 4.5:1 — Pass |
+| Dark: Nav links, conservative header over primary text | `#C6B58E` | `#2A352F` | **6.31:1** | 4.5:1 — Pass |
+| Dark: CTA text | `#071510` | `#C6B58E` | **9.26:1** | 4.5:1 — Pass |
+| Dark: CTA hover text | `#071510` | `#E4D6B7` | **12.99:1** | 4.5:1 — Pass |
+| Dark: Placeholder / muted text | `#AAA997` | `#050C09` | **8.31:1** | 4.5:1 — Pass |
+| Dark: Error text | `#EAC29B` | `#071510` | **11.29:1** | 4.5:1 — Pass |
+| Dark: Success text | `#A6DCB5` | `#101F17` | **10.99:1** | 4.5:1 — Pass |
+| Dark: Table header and input text | `#F2EDDF` | `#050C09` | **16.89:1** | 4.5:1 — Pass |
+| Dark: Panel and odd-row text | `#F2EDDF` | `#102019` | **14.45:1** | 4.5:1 — Pass |
+| Dark: Even-row text | `#F2EDDF` | `#232B25` | **12.44:1** | 4.5:1 — Pass |
+| Dark: Table source, worst row | `#C5C7B7` | `#232B25` | **8.47:1** | 4.5:1 — Pass |
+| Dark: Table odd-row borders | `#C6B58E` | `#102019` | **8.37:1** | 3:1 — Pass |
+| Dark: Table even-row borders | `#C6B58E` | `#232B25` | **7.20:1** | 3:1 — Pass |
+| Dark: Table header and input borders | `#C6B58E` | `#050C09` | **9.78:1** | 3:1 — Pass |
+| Dark: Invalid input border | `#EAC29B` | `#050C09` | **11.94:1** | 3:1 — Pass |
+| Dark: Focus ring on canvas | `#E4D6B7` | `#071510` | **12.99:1** | 3:1 — Pass |
+| Dark: Focus ring on card | `#E4D6B7` | `#102019` | **11.75:1** | 3:1 — Pass |
+| Dark: Focus ring on input | `#E4D6B7` | `#050C09` | **13.74:1** | 3:1 — Pass |
+| Dark: Focus ring on container | `#E4D6B7` | `#232B25` | **10.11:1** | 3:1 — Pass |
+| Dark: Gold accent on canvas | `#C6B58E` | `#071510` | **9.26:1** | 3:1 — Pass |
+| Dark: Gold accent on card | `#C6B58E` | `#102019` | **8.37:1** | 3:1 — Pass |
+| Dark: Gold accent on container | `#C6B58E` | `#232B25` | **7.20:1** | 3:1 — Pass |
 
 Primary headings, error text, and success text also exceed 4.5:1 on their respective page backgrounds. These checks establish contrast for the listed combinations, not whole-page WCAG compliance; check rendered hover/focus states and any added surfaces when implementing.
 
 ## Dark-Mode Palette
 
-Slate surfaces, near-white text, amber calls to action, warm amber links, and cyan focus rings replace the light palette only under `:root[data-theme="dark"]`. Typography, spacing, content, and behavior stay the same. Every applied color is a CSS custom property.
+Forest green surfaces, cream text, gold calls to action and links, and a translucent forest header replace the light palette only under `:root[data-theme="dark"]`. All colors are CSS custom properties. The header uses a 12px backdrop blur; no typography, geometry, copy, or behavior changes.
 
-| Role / variable | Hex | Use |
+| Role / variable | Value | Use |
 | --- | --- | --- |
-| Canvas / `--background` | `#0B0F17` | Page background. |
-| Sub-background / `--sub-background` | `#0F172A` | Header, table header, inputs and select. |
-| Card/panel / `--panel` | `#151D2F` | Open accordion panel and odd table rows. |
-| Elevated / `--elevated` | `#1E293B` | Even table rows. |
-| Hover surface / `--surface-hover` | `#26354D` | Accordion and theme-toggle hover. |
-| Primary text / `--foreground`, `--primary` | `#F8FAFC` | Body, headings and labels. |
-| CTA text / `--button-text` | `#0B0F17` | Dark text on amber buttons and their hover state. |
-| Secondary text / `--secondary` | `#CBD5E1` | Hero copy, section intros and explanatory notes. |
-| Subtle text / `--subtle` | `#94A3B8` | Table source column. |
-| Muted text / `--muted` | `#738196` | Placeholder styling; adjusted for contrast. The current inputs have no placeholder copy. |
-| Disabled / `--disabled` | `#475569` | Reserved for disabled controls; currently unused. |
-| Card outline / `--card-outline` | `#1E293B` | Reserved decorative token; functional borders use `--border`. |
-| Functional border / `--border` | `#687281` | Inputs, tables, section separators and theme-toggle border. |
-| Divider / `--divider` | `#1B2538` | Reserved decorative token; currently unused. |
-| Primary CTA / `--accent` | `#F59E0B` | Amber buttons and the Common mistake left border. |
-| Primary CTA hover / `--accent-hover` | `#FBBF24` | Amber button hover with dark text. |
-| Warm accent / `--warm-accent` | `#F59E0B` | Links and nav links. |
-| Focus ring / `--focus` | `#38BDF8` | Visible keyboard focus ring. |
-| Success / `--success` | `#10B981` | Demo confirmation text. |
-| Warning / `--warning` | `#F59E0B` | Reserved warning token. |
-| Error / `--error` | `#EF4444` | Error messages and invalid-input borders. |
-| Info / `--info` | `#3B82F6` | Reserved info token. |
+| Canvas / `--background`, CTA text / `--button-text` | `#071510` | Page canvas and dark text on gold buttons. |
+| Deep background / `--sub-background` | `#050C09` | Inputs, select, table header, theme toggle. |
+| Card/surface / `--panel` | `#102019` | Open accordion panel and odd table rows. |
+| Container / `--elevated` | `#232B25` | Even table rows. |
+| Map background / `--surface-hover` | `#0B1C14` | Accordion and theme-toggle hover surfaces; no map is present. |
+| Header / `--header-background` | `#071510D9` | Translucent header with backdrop blur. |
+| Primary text / `--primary`, `--foreground` | `#F2EDDF` | Body, headings, labels and table headers. |
+| Secondary / `--secondary`, `--muted` | `#AAA997` | Intro copy, explanatory notes and placeholder styling. |
+| Supporting / `--subtle` | `#C5C7B7` | Table source column. |
+| Primary gold / `--accent`, `--warm-accent` | `#C6B58E` | CTA, links, Common mistake border, functional borders. |
+| Hover / `--accent-hover`, focus / `--focus` | `#E4D6B7` | CTA hover and keyboard focus ring. |
+| Decorative borders / `--border`, `--card-outline`, `--divider` | `#C6B58E26` | Approximately 15% gold section and accordion dividers. |
+| Success text / `--success` | `#A6DCB5` | Confirmation with its existing check icon and text. |
+| Success background / `--success-background` | `#8BA77912` | Translucent confirmation background. |
+| Success border / `--success-border` | `#8BA77960` | Decorative inset confirmation outline with no geometry change. |
+| Error / `--error` | `#EAC29B` | Form error text and invalid-input borders; existing warning icon and text retained. |
+| Reserved / `--disabled`, `--warning`, `--info` | `#AAA997`, `#C6B58E`, `#C5C7B7` | Existing tokens mapped to palette colors; no active disabled, warning or info components. |
 
-The amber CTA and hover colors pass without adjustment. The existing muted-text and functional-border adjustments use the first passing 8-bit step along the sRGB line toward white. All other supplied palette values are preserved.
+Functional-border substitutions, using supplied palette colors only:
 
-| Supplied value | Applied value | Reason |
-| --- | --- | --- |
-| Muted text `#64748B` | `#738196` | Text on input sub-background rises from 3.751:1 to 4.514:1. |
-| Input / functional border `#334155` | `#687281` | The shared border must also work on elevated table rows; contrast there rises from 1.413:1 to 3.004:1, and input-border contrast is 3.666:1. |
+| Use | Decorative value | Applied value | Reason |
+| --- | --- | --- | --- |
+| Input and select borders | `#C6B58E26` | `var(--accent)` / `#C6B58E` | Translucent gold is below 3:1 on deep backgrounds. Opaque palette gold reaches 9.78:1. Invalid borders use `--error` instead. |
+| Table cell borders | `#C6B58E26` | `var(--accent)` / `#C6B58E` | Translucent gold is below 3:1 on both row surfaces. Opaque gold reaches 8.37:1 on cards and 7.20:1 on containers. |
+| Theme-toggle border | `#C6B58E26` | `var(--accent)` / `#C6B58E` | Identifies an interactive control at over 3:1. |
+| Keyboard focus | Decorative gold is not used | `var(--focus)` / `#E4D6B7` | The supplied hover gold exceeds 3:1 on canvas, cards and containers. |
 
-Disabled and reserved decorative tokens are not used for active text or functional boundaries. WCAG contrast claims above apply to rendered pairings, not to arbitrary combinations of every palette token. Placeholder contrast was checked with a temporary browser-only probe; no placeholder copy was added to the page.
+No supplied text, CTA, hover, or status color needed adjustment. Decorative separators and the success outline are not functional boundaries and retain their supplied transparency. Success text is checked against its background composited over the canvas. Header text is checked both over canvas and conservatively over the palette's brightest text before blur. Existing fields contain no placeholder copy; placeholder styling was tested with a temporary browser-only probe. No favicon is configured.
