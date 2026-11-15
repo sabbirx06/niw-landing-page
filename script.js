@@ -96,3 +96,34 @@ window.addEventListener("resize", measureHeader);
 measureHeader();
 document.fonts.ready.then(measureHeader);
 updateHeader();
+
+const themeToggle = document.querySelector(".theme-toggle");
+const themePreference = matchMedia("(prefers-color-scheme: dark)");
+let hasThemeChoice = false;
+try {
+  const savedTheme = localStorage.getItem("theme");
+  hasThemeChoice = savedTheme === "light" || savedTheme === "dark";
+} catch (error) { /* The toggle still works without storage. */ }
+
+function reflectTheme() {
+  const dark = document.documentElement.dataset.theme === "dark";
+  themeToggle.setAttribute("aria-pressed", String(dark));
+  themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  document.querySelector('meta[name="theme-color"]').content = getComputedStyle(document.documentElement).getPropertyValue("--background").trim();
+}
+
+themeToggle.addEventListener("click", () => {
+  const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = theme;
+  hasThemeChoice = true;
+  try { localStorage.setItem("theme", theme); } catch (error) { /* Storage may be blocked. */ }
+  reflectTheme();
+});
+themePreference.addEventListener("change", (event) => {
+  if (!hasThemeChoice) {
+    document.documentElement.dataset.theme = event.matches ? "dark" : "light";
+    reflectTheme();
+  }
+});
+reflectTheme();
+requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add("theme-ready")));

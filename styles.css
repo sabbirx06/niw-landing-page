@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --primary: #234C43;
   --accent: #8A5A24;
   --foreground: #26332F;
@@ -13,17 +14,20 @@
   --compact-header-height: 59px;
 }
 
-/* Future dark-mode variables:
-[data-theme="dark"] {
+:root[data-theme="dark"] {
+  color-scheme: dark;
   --primary: #A3C9B8;
   --accent: #DBAF75;
   --foreground: #E8EDE8;
   --background: #18231F;
   --error: #F3A6A0;
   --success: #96C9A7;
+  --accent-hover: #E8C595;
+  --border: #8BA698;
+  --focus: #A3C9B8;
   --button-text: #18231F;
 }
-Recheck hover, border, and focus colors before enabling dark mode. */
+
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -46,9 +50,9 @@ a:hover { text-decoration-thickness: 2px; }
 .site-header { position: sticky; top: 0; padding-block: 24px; border-bottom: 1px solid var(--border); background: var(--background); pointer-events: auto; transition: padding 200ms ease; }
 .site-header.is-compact { padding-block: 12px; }
 .site-header.is-compact .wordmark { font-size: 20px; }
-.header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.header-inner { position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
 .wordmark { color: var(--primary); font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-size: 24px; font-weight: 600; text-decoration: none; transition: font-size 200ms ease; }
-nav { display: flex; gap: 24px; }
+nav { display: flex; gap: 24px; margin-right: 60px; }
 nav a { font-size: 16px; }
 h1, h2, h3 { color: var(--primary); font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-weight: 600; }
 h1 { font-size: clamp(2.6rem, 5.5vw, 4.75rem); line-height: 1.12; letter-spacing: -.025em; max-width: 15ch; margin: 16px 0 28px; }
@@ -140,3 +144,27 @@ input, select { width: 100%; min-width: 0; min-height: 50px; border: 1px solid v
 .scroll-hint { font-size: 16px; margin: 0 0 12px; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 @media (min-width: 900px) { .scroll-hint { display: none; } }
+
+/* Theme controls use the same semantic palette as the rest of the page. */
+.theme-toggle { position: absolute; right: 0; top: 50%; transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 1px solid var(--border); border-radius: 4px; background: var(--background); color: var(--primary); cursor: pointer; }
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+.theme-toggle svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.theme-sun { display: none; }
+:root[data-theme="dark"] .theme-moon { display: none; }
+:root[data-theme="dark"] .theme-sun { display: block; }
+@media (max-width: 477.25px) {
+  nav { margin-right: 0; }
+  .theme-toggle { top: 0; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .theme-ready body, .theme-ready .site-header, .theme-ready .wordmark,
+  .theme-ready a, .theme-ready h1, .theme-ready h2, .theme-ready h3,
+  .theme-ready .eyebrow, .theme-ready .accordion-trigger, .theme-ready input,
+  .theme-ready select, .theme-ready .field-error, .theme-ready .confirmation,
+  .theme-ready .comparison-table tr, .theme-ready .comparison-table thead,
+  .theme-ready .theme-toggle, .theme-ready .button {
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+  .theme-ready .site-header { transition: padding 200ms ease, background-color 200ms ease, color 200ms ease; }
+  .theme-ready .wordmark { transition: font-size 200ms ease, color 200ms ease; }
+}
