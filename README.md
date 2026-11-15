@@ -29,7 +29,7 @@ Open `index.html` directly in a web browser. Keep `styles.css` and `script.js` a
 
 ## Design choices
 
-The forest green and ochre palette on a warm paper background gives the page a calm, educational character. Source Serif 4 at weight 600 is used for headings; Inter at weight 400 is used for body text, with weight 600 for labels and buttons. The hero fills the first screen below the header using viewport-based minimum height, while growing when needed to avoid clipping. Section headings and introductory text are centered at every size. At widths of 900px and above, the accordion and contact form share centered 760px columns; panel text and form labels stay left-aligned. Visible “EB-2” text uses normal hyphens inside nowrap spans to prevent splitting across lines.
+The light theme uses forest green and ochre on warm paper; the dark theme uses slate surfaces, rose calls to action, and warm amber links. Source Serif 4 at weight 600 is used for headings; Inter at weight 400 is used for body text, with weight 600 for labels and buttons. The hero fills the first screen below the header using viewport-based minimum height, while growing when needed to avoid clipping. Section headings and introductory text are centered at every size. At widths of 900px and above, the accordion and contact form share centered 760px columns; panel text and form labels stay left-aligned. Visible “EB-2” text uses normal hyphens inside nowrap spans to prevent splitting across lines.
 
 WCAG AA contrast checks are documented in `content/design.md`. Body text has a contrast ratio of 12.39:1 and button text 5.54:1, both exceeding the 4.5:1 requirement for normal text. These checks do not establish whole-page WCAG compliance.
 
